@@ -5,7 +5,8 @@
     "main": "index.js",
     "files": [
         "index.js",
-        "object.entries.js"
+        "object.entries.js",
+        "array.findIndex.js"
     ],
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 0"
