@@ -17,6 +17,7 @@
     "url": "https://github.com/edm00se/parcel-plugin-goodie-bag.git"
   },
   "dependencies": {
+    "array.find": "^1.0.9",
     "cheerio": "^1.0.0-rc.2",
     "es6-object-assign": "^1.1.0",
     "es6-promise": "^4.2.5",
