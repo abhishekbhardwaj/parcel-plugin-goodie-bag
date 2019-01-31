@@ -65,6 +65,12 @@ function copyGoodiesToDist(outDir) {
         require.resolve("array.find/dist/array-find-polyfill.min.js"),
         "utf8"
     );
+    const polyObjectEntriesValuesContent = fs.readFileSync(
+        require.resolve(
+            "es7-object-polyfill/build/es7-object-polyfill.browser.js"
+        ),
+        "utf8"
+    );
 
     const polyFileContent = [
         goodieBagHeaderComment,
@@ -72,7 +78,8 @@ function copyGoodiesToDist(outDir) {
         polyFetchContent,
         polyObjectAssignContent,
         polyArrayIncludesContent,
-        polyArrayFindContent
+        polyArrayFindContent,
+        polyObjectEntriesValuesContent
     ].join("\n");
 
     fs.writeFileSync(path.join(outDir, goodieBagFileName), polyFileContent);
