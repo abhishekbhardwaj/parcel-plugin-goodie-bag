@@ -54,12 +54,20 @@ function copyGoodiesToDist(outDir) {
         polyObjectAssignPath,
         "utf8"
     );
+    const polyArrayIncludesPath = require.resolve(
+        "polyfill-array-includes/index.js"
+    );
+    const polyArrayIncludesContent = fs.readFileSync(
+        polyArrayIncludesPath,
+        "utf8"
+    );
 
     const polyFileContent = [
         goodieBagHeaderComment,
         polyPromiseContent,
         polyFetchContent,
-        polyObjectAssignContent
+        polyObjectAssignContent,
+        polyArrayIncludesContent
     ].join("\n");
 
     fs.writeFileSync(path.join(outDir, goodieBagFileName), polyFileContent);

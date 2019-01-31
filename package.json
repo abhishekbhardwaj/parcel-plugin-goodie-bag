@@ -20,6 +20,7 @@
     "cheerio": "^1.0.0-rc.2",
     "es6-object-assign": "^1.1.0",
     "es6-promise": "^4.2.5",
+    "polyfill-array-includes": "^1.0.0",
     "unfetch": "^4.0.1"
   }
 }
