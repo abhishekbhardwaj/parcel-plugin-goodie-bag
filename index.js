@@ -67,7 +67,7 @@ function copyGoodiesToDist(outDir) {
     );
     const polyObjectEntriesValuesContent = fs.readFileSync(
         require.resolve(
-            "es7-object-polyfill/build/es7-object-polyfill.browser.js"
+            "object.entries/auto.js"
         ),
         "utf8"
     );

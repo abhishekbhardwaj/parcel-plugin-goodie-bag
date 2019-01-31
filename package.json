@@ -1,28 +1,28 @@
 {
-  "name": "parcel-plugin-goodie-bag",
-  "version": "1.0.1",
-  "description": "provides the Promise and fetch goodies needed for IE(11) support w/ parcel bundle loading",
-  "main": "index.js",
-  "files": [
-    "index.js"
-  ],
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
-  },
-  "keywords": [],
-  "author": "Eric McCormick (https://edm00se.codes/)",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/edm00se/parcel-plugin-goodie-bag.git"
-  },
-  "dependencies": {
-    "array.find": "^1.0.9",
-    "cheerio": "^1.0.0-rc.2",
-    "es6-object-assign": "^1.1.0",
-    "es6-promise": "^4.2.5",
-    "es7-object-polyfill": "0.0.7",
-    "polyfill-array-includes": "^1.0.0",
-    "unfetch": "^4.0.1"
-  }
+    "name": "parcel-plugin-goodie-bag",
+    "version": "1.0.1",
+    "description": "provides the Promise and fetch goodies needed for IE(11) support w/ parcel bundle loading",
+    "main": "index.js",
+    "files": [
+        "index.js"
+    ],
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 0"
+    },
+    "keywords": [],
+    "author": "Eric McCormick (https://edm00se.codes/)",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/edm00se/parcel-plugin-goodie-bag.git"
+    },
+    "dependencies": {
+        "array.find": "^1.0.9",
+        "cheerio": "^1.0.0-rc.2",
+        "es6-object-assign": "^1.1.0",
+        "es6-promise": "^4.2.5",
+        "object.entries": "^1.1.0",
+        "polyfill-array-includes": "^1.0.0",
+        "unfetch": "^4.0.1"
+    }
 }
