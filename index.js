@@ -66,9 +66,7 @@ function copyGoodiesToDist(outDir) {
         "utf8"
     );
     const polyObjectEntriesValuesContent = fs.readFileSync(
-        require.resolve(
-            "object.entries/auto.js"
-        ),
+        require.resolve("./polyfills/object.entries.js"),
         "utf8"
     );
 
