@@ -1,6 +1,16 @@
 # parcel-plugin-goodie-bag
 
-Brings a high level polyfill for `Promise` and `fetch`.
+Provides high-level polyfills to keep parcel working on IE(11) for the following API's:
+
+- Promise
+- fetch APIs
+- Object.assign
+- Array.includes
+- Array.find
+- Object.entries
+- Object.values
+- Array.findIndex
+- URL (object)
 
 ## Why This Is Needed
 
@@ -10,7 +20,11 @@ This plugin is born of my frustaration with the scenario outline in [parcel issu
 
 ## Installation
 
-- `npm install --save-dev parcel-plugin-goodie-bag`
+Add this to your projects `devDependencies`:
+
+```json
+"parcel-plugin-goodie-bag": "github:phoenix-scitent/parcel-plugin-goodie-bag"
+```
 
 ## Usage
 

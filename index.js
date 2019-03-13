@@ -6,10 +6,22 @@ const goodieBagFileName = "goodie-bag.min.js";
 const goodieBagHeaderComment = `/**
 * parcel-plugin-goodie-bag
 *
-* Provides a high-level polyfill to both the Promise and fetch APIs, to keep parcel working on IE(11).
+* Provides high-level polyfills to keep parcel working on IE(11) for the following API's:
+*
+* - Promise
+* - fetch APIs
+* - Object.assign
+* - Array.includes
+* - Array.find
+* - Object.entries
+* - Object.values
+* - Array.findIndex
+* - URL (object)
+*
 * This works around: https://github.com/parcel-bundler/parcel/issues/2364
 *
-* src: https://github.com/edm00se/parcel-plugin-goodie-bag
+* Source: https://github.com/edm00se/parcel-plugin-goodie-bag
+* Fork: https://github.com/phoenix-scitent/parcel-plugin-goodie-bag
 */`;
 
 module.exports = function(bundler) {
@@ -73,6 +85,10 @@ function copyGoodiesToDist(outDir) {
         require.resolve("./array.findIndex.js"),
         "utf8"
     );
+    const polyfillURLObjectContent = fs.readFileSync(
+        require.resolve("url-polyfill/url-polyfill.min.js"),
+        "utf8"
+    );
 
     const polyFileContent = [
         goodieBagHeaderComment,
@@ -82,7 +98,8 @@ function copyGoodiesToDist(outDir) {
         polyArrayIncludesContent,
         polyArrayFindContent,
         polyObjectEntriesContent,
-        polyArrayFindIndexContent
+        polyArrayFindIndexContent,
+        polyfillURLObjectContent
     ].join("\n");
 
     fs.writeFileSync(path.join(outDir, goodieBagFileName), polyFileContent);
