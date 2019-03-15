@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const URL = require("url");
 const cheerio = require("cheerio");
+const UglifyJS = require("uglify-js");
 const goodieBagFileName = "goodie-bag.min.js";
 const goodieBagHeaderComment = `/**
 * parcel-plugin-goodie-bag
@@ -26,8 +27,17 @@ const goodieBagHeaderComment = `/**
 
 module.exports = function(bundler) {
     bundler.on("bundled", bund => {
+        // Pretty custom for propel
         if (bund.type === "html" && bund.entryAsset.basename === "index.html") {
+            // For development (this gets called) - ./node_modules/.bin/parcel serve index.html
             injectGoodies(bund);
+        } else {
+            // For production (this gets called) - ./node_modules/.bin/parcel build index.html --out-dir build
+            bund.childBundles.forEach(b => {
+                if (b.type === "html") {
+                    copyGoodiesToDist(path.dirname(b.name), true);
+                }
+            });
         }
     });
 };
@@ -52,7 +62,7 @@ function injectGoodies(bund) {
     }
 }
 
-function copyGoodiesToDist(outDir) {
+function copyGoodiesToDist(outDir, minify = false) {
     const polyPromisePath = require.resolve(
         "es6-promise/dist/es6-promise.auto.min.js"
     );
@@ -90,7 +100,7 @@ function copyGoodiesToDist(outDir) {
         "utf8"
     );
 
-    const polyFileContent = [
+    let polyFileContent = [
         goodieBagHeaderComment,
         polyPromiseContent,
         polyFetchContent,
@@ -101,6 +111,14 @@ function copyGoodiesToDist(outDir) {
         polyArrayFindIndexContent,
         polyfillURLObjectContent
     ].join("\n");
+
+    // Minify code to reduce size.
+    if (minify) {
+        const minifyResult = UglifyJS.minify(polyFileContent);
+        if (!minifyResult.error) {
+            polyFileContent = minifyResult.code;
+        }
+    }
 
     fs.writeFileSync(path.join(outDir, goodieBagFileName), polyFileContent);
 }

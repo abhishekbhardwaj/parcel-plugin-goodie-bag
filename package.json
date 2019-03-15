@@ -24,6 +24,7 @@
         "es6-object-assign": "^1.1.0",
         "es6-promise": "^4.2.5",
         "polyfill-array-includes": "^1.0.0",
+        "uglify-js": "^3.4.10",
         "unfetch": "^4.0.1",
         "url-polyfill": "^1.1.5"
     }
