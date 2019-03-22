@@ -5,6 +5,7 @@
     "main": "index.js",
     "files": [
         "index.js",
+        "object.keys.js",
         "object.entries.js",
         "array.findIndex.js"
     ],

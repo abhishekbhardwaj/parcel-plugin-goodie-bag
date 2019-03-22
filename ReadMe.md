@@ -9,6 +9,7 @@ Provides high-level polyfills to keep parcel working on IE(11) for the following
 - Array.find
 - Object.entries
 - Object.values
+- Object.keys
 - Array.findIndex
 - URL (object)
 
@@ -38,9 +39,9 @@ No additional configuration required. If your app is being bundled by parcel and
 
 I made use of [a simple reproducible repository](https://github.com/edm00se/parcel-ie11-issue-demo) I had set up for tracking this issue.
 
-| Before                         | After                        |
-|--------------------------------|------------------------------|
-| ![before](assets/before.jpg)   | ![after](assets/after.jpg)   |
+| Before                       | After                      |
+| ---------------------------- | -------------------------- |
+| ![before](assets/before.jpg) | ![after](assets/after.jpg) |
 
 ## Contributing
 
@@ -50,9 +51,14 @@ If you see something fundamentally wrong with this, feel free to submit a PR.
 
 Parcel is an amazing bundler with superpowers. The fact that my ability to support IE(11), a requirement for my day job, was hampered by this limitation of a multiple bundle scenario meant that I had to solve the problem myself. It is my hope that one day the configuration of Parcel will allow for the surfacing of base level APIs, such as `Promise` and `fetch` to make this plugin unnecessary. Until then, I'll keep this available to provide some sanity.
 
+## Todo
+
+- Use [https://github.com/paulmillr/es6-shim](https://github.com/paulmillr/es6-shim) for polyfills.
+
 ## Credits
 
 - [parcel](https://parceljs.org/)
+- Repository forked from: https://github.com/edm00se/parcel-plugin-goodie-bag.
 
 ## License
 
