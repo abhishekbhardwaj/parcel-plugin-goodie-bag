@@ -16,7 +16,7 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/edm00se/parcel-plugin-goodie-bag.git"
+        "url": "https://github.com/phoenix-scitent/parcel-plugin-goodie-bag.git"
     },
     "dependencies": {
         "array.find": "^1.0.9",
