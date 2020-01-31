@@ -1,6 +1,6 @@
 {
     "name": "parcel-plugin-goodie-bag",
-    "version": "1.1.1",
+    "version": "1.2",
     "description": "provides various polyfills needed for IE(11) support w/ parcel bundle loading",
     "main": "index.js",
     "files": [
