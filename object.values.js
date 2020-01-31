@@ -1,4 +1,5 @@
 // Object.values polyfill: https://github.com/xpl/es7-object-polyfill/blob/master/es7-object-polyfill.js
+var ownKeys = Function.bind.call(Function.call, Reflect.ownKeys);
 var reduce = Function.bind.call(Function.call, Array.prototype.reduce);
 var isEnumerable = Function.bind.call(
   Function.call,
