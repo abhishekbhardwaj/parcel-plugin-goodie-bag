@@ -3,6 +3,7 @@ const path = require("path");
 const URL = require("url");
 const cheerio = require("cheerio");
 const UglifyJS = require("uglify-js");
+var ownKeys = require("reflect.ownkeys");
 const goodieBagFileName = "goodie-bag.min.js";
 const goodieBagHeaderComment = `/**
 * parcel-plugin-goodie-bag
@@ -64,6 +65,11 @@ function injectGoodies(bund) {
 }
 
 function copyGoodiesToDist(outDir, minify = false) {
+  // Shim Reflect.ownKeys for Polyfilling Object.Values
+  if (!Reflect.ownKeys) {
+    ownKeys.shim();
+  }
+
   const polyPromisePath = require.resolve(
     "es6-promise/dist/es6-promise.auto.min.js"
   );
